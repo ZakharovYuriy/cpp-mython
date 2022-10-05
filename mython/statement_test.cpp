@@ -1,6 +1,5 @@
 #include "statement.h"
-
-#include <test_runner.h>
+#include "test_runner_p.h"
 
 using namespace std;
 
@@ -126,7 +125,7 @@ void TestFieldAssignment() {
     }
     ASSERT(object.Fields().find("x"s) != object.Fields().end());
     ASSERT_OBJECT_VALUE_EQUAL(object.Fields().at("x"s), 57);
-
+    
     assign_y.Execute(closure, context);
     FieldAssignment assign_yz(
         VariableValue{vector<string>{"self"s, "y"s}}, "z"s,

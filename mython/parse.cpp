@@ -361,7 +361,7 @@ private:
     {
         auto result = ParseExpression();
 
-        const auto tok = lexer_.CurrentToken();
+        const auto& tok = lexer_.CurrentToken();
 
         if (tok == '<') {
             lexer_.NextToken();

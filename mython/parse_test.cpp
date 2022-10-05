@@ -1,8 +1,7 @@
 #include "lexer.h"
 #include "parse.h"
 #include "statement.h"
-
-#include <test_runner.h>
+#include "test_runner_p.h"
 
 using namespace std;
 
@@ -162,6 +161,7 @@ class GCD:
 x = GCD()
 print x.calc(510510, 18629977)
 print x.calc(22, 17)
+#print x.calc(5, 5)
 print x.call_count
 )"s;
 
