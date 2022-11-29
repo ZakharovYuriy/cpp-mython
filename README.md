@@ -34,7 +34,7 @@ cmake --build Release/.
 ```
 ./mython
 ```
-6)After the messages about the successful completion of the tests, you can run your program in Python, and then, at the end of the program, to get an answer, type **ctrl+D into the command console**<br>
+6)After the messages about the successful completion of the tests, you can run your program in Mython, and then, at the end of the program, to get an answer, type **ctrl+D into the command console**<br>
 <br>
 
 **ALL in one command(Release)**:<br>
