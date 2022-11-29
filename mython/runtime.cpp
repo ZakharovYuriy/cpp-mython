@@ -18,7 +18,7 @@ void ObjectHolder::AssertIsValid() const {
 }
 
 ObjectHolder ObjectHolder::Share(Object& object) {
-    // Возвращаем невладеющий shared_ptr (его deleter ничего не делает)
+	// Return a non-owning shared_ptr (its deleter does nothing)
     return ObjectHolder(std::shared_ptr<Object>(&object, [](auto* /*p*/) { /* do nothing */ }));
 }
 

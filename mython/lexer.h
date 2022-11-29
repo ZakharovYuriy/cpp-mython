@@ -10,49 +10,48 @@
 #include <variant>
 #include <vector>
 
-
 namespace parse {
 
     using namespace std::literals;
 
     namespace token_type {
 
-        struct Number {  // Лексема «число»
-          int value;   // число
+        struct Number { // Lexeme "number"
+          int value;   // number
         };
 
-        struct Id {             // Лексема «идентификатор»
-            std::string value;  // Имя идентификатора
+        struct Id {             // Lexeme «id»
+            std::string value;  // id
         };
 
-        struct Char {    // Лексема «символ»
-            char value;  // код символа
+        struct Char {    // Lexeme «symbol»
+            char value;  // symbol code
         };
 
-        struct String {  // Лексема «строковая константа»
+        struct String {  // Lexeme «string constant"
             std::string value;
         };
 
-        struct Class {};    // Лексема «class»
-        struct Return {};   // Лексема «return»
-        struct If {};       // Лексема «if»
-        struct Else {};     // Лексема «else»
-        struct Def {};      // Лексема «def»
-        struct Newline {};  // Лексема «конец строки»
-        struct Print {};    // Лексема «print»
-        struct Indent {};  // Лексема «увеличение отступа», соответствует двум пробелам
-        struct Dedent {};  // Лексема «уменьшение отступа»
-        struct Eof {};     // Лексема «конец файла»
-        struct And {};     // Лексема «and»
-        struct Or {};      // Лексема «or»
-        struct Not {};     // Лексема «not»
-        struct Eq {};      // Лексема «==»
-        struct NotEq {};   // Лексема «!=»
-        struct LessOrEq {};     // Лексема «<=»
-        struct GreaterOrEq {};  // Лексема «>=»
-        struct None {};         // Лексема «None»
-        struct True {};         // Лексема «True»
-        struct False {};        // Лексема «False»
+        struct Class {};    // Lexeme «class»
+        struct Return {};   // Lexeme «return»
+        struct If {};       // Lexeme «if»
+        struct Else {};     // Lexeme «else»
+        struct Def {};      // Lexeme «def»
+        struct Newline {};  // Lexeme «конец строки»
+        struct Print {};    // Lexeme «print»
+        struct Indent {};  // Lexeme «increasing the margin», corresponds to two spaces
+        struct Dedent {};  // Lexeme «reducing the indentation»
+        struct Eof {};     // Lexeme «end of file"
+        struct And {};     // Lexeme «and»
+        struct Or {};      // Lexeme «or»
+        struct Not {};     // Lexeme «not»
+        struct Eq {};      // Lexeme «==»
+        struct NotEq {};   // Lexeme «!=»
+        struct LessOrEq {};     // Lexeme «<=»
+        struct GreaterOrEq {};  // Lexeme «>=»
+        struct None {};         // Lexeme «None»
+        struct True {};         // Lexeme «True»
+        struct False {};        // Lexeme «False»
     }  // namespace token_type
 
     using TokenBase
@@ -96,14 +95,14 @@ namespace parse {
     public:
         explicit Lexer(std::istream& input);
 
-        // Возвращает ссылку на текущий токен или token_type::Eof, если поток токенов закончился
+        // Returns a reference to the current token or token_type::Eof if the token flow has ended
         [[nodiscard]] const Token& CurrentToken() const;
 
-        // Возвращает следующий токен, либо token_type::Eof, если поток токенов закончился
+        // Returns the following token, or token_type::Eof if the token flow has ended
         Token NextToken();
 
-        // Если текущий токен имеет тип T, метод возвращает ссылку на него.
-        // В противном случае метод выбрасывает исключение LexerError
+        // If the current token is of type T, the method returns a reference to it.
+        // Otherwise, the method throws a LexerError exception
         template <typename T>
         const T& Expect() const {
             using namespace std::literals;
@@ -113,8 +112,8 @@ namespace parse {
             throw LexerError("Not implemented"s);
         }
 
-        // Метод проверяет, что текущий токен имеет тип T, а сам токен содержит значение value.
-        // В противном случае метод выбрасывает исключение LexerError
+        // The method checks that the current token is of type T, and the token itself contains the value value.
+        // Otherwise, the method throws a LexerError exception
         template <typename T, typename U>
         void Expect(const U& value) const {
             using namespace std::literals;
@@ -123,8 +122,8 @@ namespace parse {
             }
         }
 
-        // Если следующий токен имеет тип T, метод возвращает ссылку на него.
-        // В противном случае метод выбрасывает исключение LexerError
+        // If the next token is of type T, the method returns a reference to it.
+        // Otherwise, the method throws a LexerError exception
         template <typename T>
         const T& ExpectNext() {
             using namespace std::literals;
@@ -134,8 +133,8 @@ namespace parse {
             throw LexerError("Not implemented"s);
         }
 
-        // Метод проверяет, что следующий токен имеет тип T, а сам токен содержит значение value.
-        // В противном случае метод выбрасывает исключение LexerError
+        // The method checks that the next token is of type T, and the token itself contains the value value.
+        // Otherwise, the method throws a LexerError exception
         template <typename T, typename U>
         void ExpectNext(const U& value) {
             using namespace std::literals;
@@ -154,17 +153,17 @@ namespace parse {
         size_t offset_buff = 0;
         size_t offset = 0;
         size_t previous_line_offset = 0;
-        
+
         bool is_new_line = true;
         bool is_first_line = true;
         bool exception_symbol = false;
         bool single_quote_open = false;
         bool double_quote_open = false;
         bool coment = false;
-        
+
 
         const std::set<std::string> keywords_ {
-            "class"s, "return"s, "if"s, "else"s, 
+            "class"s, "return"s, "if"s, "else"s,
             "def"s, "print"s,
             "and"s , "or"s , "not"s , "=="s , "!="s ,
             "<="s, ">="s, "None"s, "True"s, "False"s
