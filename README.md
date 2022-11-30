@@ -58,8 +58,8 @@ mkdir Release; cmake -E chdir Release/ cmake -G "Unix Makefiles" ../ -DCMAKE_BUI
 2. Abstract Syntax Tree (AST).<br>
 3. Inheritance<br>
 4. Table of virtual methods<br>
-5. Lexical analyzer, or lexer.<br>
-6. Parser, or parser.<br>
+5. Lexical analyzer, or lexer<br>
+6. Parser<br>
 7. Semantic analyzer.<br>
 
 # Usage
