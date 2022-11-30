@@ -72,13 +72,13 @@ mkdir Release; cmake -E chdir Release/ cmake -G "Unix Makefiles" ../ -DCMAKE_BUI
 Python uses only integers. You can perform the usual arithmetic operations with them: addition, subtraction, multiplication, integer division.<br>
 
 ## Lines in Mython are unchangeable.
-A string constant in Mython is a sequence of arbitrary characters placed on a single line and bounded by double quotes " or single '. Escaping of special characters '\n', '\t', '\" and '\"' is supported. [example 1](#1-examples-of-strings-in-mython) <br>
+A string constant in Mython is a sequence of arbitrary characters placed on a single line and bounded by double quotes " or single '. Escaping of special characters '\n', '\t', '\\" and '\\"' is supported. [example 1](#1-examples-of-lines-in-mython) <br>
 
 ## Logical constants and None
 In addition to string and integer values, the Mython language supports boolean values **True** and **False**. There is also a special value **None**, analogous to nullptr in C++. Unlike C++, logical constants are written with a capital letter.<br>
 
 ## Comments
-Mython supports single-line comments starting with the # character. All the following text up to the end of the current line is ignored. # inside strings is considered a regular character. [example 2](#2-examples-comments-in-mython)<br>
+Mython supports single-line comments starting with the # character. All the following text up to the end of the current line is ignored. # inside strings is considered a regular character. [example 2](#2-examples-of-comments-in-mython)<br>
 
 ## Identifiers
 Identifiers in Mython are used to denote the names of variables, classes, and methods. Identifiers are formed in the same way as in most other programming languages: they begin with a lowercase or uppercase Latin letter or with an underscore. Then follows an arbitrary sequence consisting of numbers, letters and an underscore. [example 3](#3-examples-of-identifiers-in-mython)<br>
@@ -97,10 +97,10 @@ A new object of a previously declared class is created in the same way as in C++
 ```
 r = Rect(10, 5)
 ```
-This program creates a new object of the Rect class. When calling the **__init__** method, the w parameter will have the value 10, and the h parameter will have the value 5. The created rectangle will be available in the r variable. [example 4] (#4—example-class-rectangle)<br>
+This program creates a new object of the Rect class. When calling the **__init__** method, the w parameter will have the value 10, and the h parameter will have the value 5. The created rectangle will be available in the r variable. [example 4](#4-example-of-the-rectangle-class)<br>
 
 ## Typing
-Unlike C++, Mython is a dynamic typing language. In it, the type of each variable is determined during the execution of the program and can change during its operation. Therefore, instead of "assigning a value to a variable", it is better to talk about "associating a value with some name". Thanks to dynamic typing, when using a variable for the first time, it is not necessary to specify its type. [example 5](#5-example-dynamic-typing)<br>
+Unlike C++, Mython is a dynamic typing language. In it, the type of each variable is determined during the execution of the program and can change during its operation. Therefore, instead of "assigning a value to a variable", it is better to talk about "associating a value with some name". Thanks to dynamic typing, when using a variable for the first time, it is not necessary to specify its type. [example 5](#5-example-of-dynamic-typing)<br>
 
 ## Operations
 In Mython defined:<br>
@@ -121,9 +121,9 @@ The order of expression evaluation can be changed by parentheses:<br>
 `print 2 + 3 * 4 # will output 14`<br>
 `print (2 + 3) * 4 # will output 20 `<br>
 
-In Mython, the addition operation, except for numbers and strings, is applicable to class objects with a special method **__add__** [example 6](#6-example-of-addition-of-class-objects-with-a-special-method-add)<br>
+In Mython, the addition operation, except for numbers and strings, is applicable to class objects with a special method **__add__** [example 6](#6-example-of-an-operation-for-adding-class-objects-with-a-special-method-add)<br>
 
-Comparison operations are applied not only to numbers and strings, but also to objects of classes having methods **__eq__** (check "equal") and **__lt__** (check "less"). Using these methods, you can implement all comparison operations. [example 7](#7-example-of-application-of-comparison-operation-to-class-objects) <br>
+Comparison operations are applied not only to numbers and strings, but also to objects of classes having methods **__eq__** (check "equal") and **__lt__** (check "less"). Using these methods, you can implement all comparison operations. [example 7](#7-example-of-applying-a-comparison-operation-to-class-objects) <br>
 
 ## str function
 The **str** function converts the argument passed to it into a string. If the argument is a class object, it calls a special method **__str__** from it and returns the result. If there is no **__str__** method in the class, the function returns a string representation of the address of the object in memory. Examples:<br>
@@ -131,7 +131,7 @@ The **str** function converts the argument passed to it into a string. If the ar
 - `str(100500) returns string 100500;`<br>
 - `str(False) returns the string False;`<br>
 - `str(Rect(3, 4)) will return the address of the object in memory, for example 0x2056fd0.`<br>
-[example 8](#8-example-class-with-method-str)<br>
+[example 8](#8-example-of-a-class-with-the-str-method)<br>
 
 ## Print command
 The special command **print** accepts a set of comma-separated arguments, prints them to standard output and additionally outputs a line feed. Take a look at this code:<br>
@@ -185,13 +185,13 @@ As mentioned above, Mython is a language with dynamic typing, so the assignment 
 ## Other restrictions
 The result of calling a method or constructor in Mython is a terminal operation. Its result can be assigned to a variable or used as a function parameter or command, but it is not possible to directly access the fields and methods of the returned object:<br>
 
-``
+```
 # It's not right
 print Rect(10, 5).w
 # And this is how you can
 r = Rect(10, 5)
 print r.w
-``
+```
 
 # Structure
 ## The interpreter consists of four main logic blocks:
@@ -310,16 +310,16 @@ The expression str(Rect(3, 4)) returns the string Rect(3x4).<br>
 Syntax:<br>
 
 ```
-if <условие>:
-  <действие 1>
-  <действие 2>
+if <condition>:
+  <action 1>
+  <action 2>
   ...
-  <действие N>
+  <action N>
 else:
-  <действие 1>
-  <действие 2>
+  <action 1>
+  <action 2>
   ...
-  <действие M> 
+  <action M>
 ```
 
 **<condition>** is an arbitrary expression followed by a colon. If the condition is true, actions are performed under the **if** branch, if false, actions are performed under the **else** branch. The presence of the **else** branch is optional.<br>
