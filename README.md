@@ -69,7 +69,7 @@ mkdir Release; cmake -E chdir Release/ cmake -G "Unix Makefiles" ../ -DCMAKE_BUI
   
 # Description of features:
 ## Numbers
-Python uses only integers. You can perform the usual arithmetic operations with them: addition, subtraction, multiplication, integer division.<br>
+Mython uses only integers. You can perform the usual arithmetic operations with them: addition, subtraction, multiplication, integer division.<br>
 
 ## Lines in Mython are unchangeable.
 A string constant in Mython is a sequence of arbitrary characters placed on a single line and bounded by double quotes " or single '. Escaping of special characters '\n', '\t', '\\" and '\\"' is supported. [example 1](#1-examples-of-lines-in-mython) <br>
