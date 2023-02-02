@@ -134,8 +134,7 @@ void TestAll() {
 
 int main() {
 	try {
-		TestAll();
-
+		//TestAll();--uncoment for run tests
 		RunMythonProgram(cin, cout);
 	} catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
