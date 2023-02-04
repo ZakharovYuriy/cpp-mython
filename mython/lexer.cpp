@@ -233,11 +233,17 @@ bool Lexer::CheckOffset(const char &symbol) {
 void Lexer::ParsingData(std::istream &input) {
 	using namespace std::literals;
 
-	string line;
+	string line="";
 	char symbol;
+	size_t line_counter=0;
 	while (getline(input, line)) {
+		++line_counter;
 		for (size_t i = 0; i < line.size(); ++i) {
 			symbol = line[i];
+
+			if(symbol == 0){
+				continue;
+			}
 
 			if (coment) {
 				continue;
@@ -312,7 +318,14 @@ void Lexer::ParsingData(std::istream &input) {
 			if (IsLegalSymbolForId(symbol) || IsNumber(symbol)) {
 				word += symbol;
 			} else {
-				throw;
+				string err="";
+				if(symbol < 0){
+					err += "Most likely the wrong language is chosen\n";
+				}
+					err +="Invalid line nomber:" + to_string(line_counter) +
+							"\nFirst error symbol nomber:" + to_string(i) +
+							"\nInvalid line is:" + line;
+				throw std::invalid_argument( err );
 			}
 
 		}
