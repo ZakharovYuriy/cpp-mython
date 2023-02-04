@@ -44,28 +44,30 @@ mkdir Release; cmake -E chdir Release/ cmake -G "Unix Makefiles" ../ -DCMAKE_BUI
 ```
 
 # System requirements:
-  1. C++17(STL)<br>
-  2. GCC (MinG w64) 11.2.0  <br>
+  0. C++17(STL)<br>
+  1. GCC (MinG w64) 11.2.0  <br>
   
 # Plans for completion:
-1. Add UI<br>
-2. Add the ability to read documents from files<br>
-3. Add support for fractional numbers<br>
-4. Add more arithmetic operations<br>
+0. Add UI<br>
+1. Add the ability to read documents from files<br>
+2. Add support for fractional numbers<br>
+3. Add more arithmetic operations<br>
 
 # Technology stack:
-1. OOP<br>
-2. Abstract Syntax Tree (AST).<br>
-3. Inheritance<br>
-4. Table of virtual methods<br>
-5. Lexical analyzer, or lexer<br>
-6. Parser<br>
-7. Semantic analyzer.<br>
+0. OOP<br>
+1. Abstract Syntax Tree (AST).<br>
+2. Inheritance<br>
+3. Table of virtual methods<br>
+4. Lexical analyzer, or lexer<br>
+5. Parser<br>
+6. Semantic analyzer.<br>
 
 # Usage
 ## Before you start:
-  0. Installation and configuration of all required components in the development environment to run the application<br>
-  1. The use case is shown in main.cpp, lexer_test_open.cpp, parse_test.cpp, parse_test.cpp, parse_test.cpp<br>
+0. Installation and configuration of all required components in the development environment to run the application<br>
+1. The use case is shown in tests.h, lexer_test_open.cpp , parse_test.cpp<br>
+2. When starting the program, you can view a brief help with -help or -h parameter<br>
+3. The program can be run in test mode with -test or -t parameter<br>
   
 # Description of features:
 ## Numbers
