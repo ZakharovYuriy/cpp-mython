@@ -7,34 +7,49 @@ Read in other languages: [English](README.md), [Русский](README.Russian.m
 Mython(Mini-python. There is a transcript of My Python, but it's about another Mython) — a simplified subset of Python.<br>
 In Mython there are **classes** and **inheritance**, and all **methods** are **virtual**.<br>
 
+# Build a Docker image and run it
+When building an image, the program is built using Cmake according to the instructions below (Release version)<br>
+When the image is launched, the compiled program runs **without parameters** and waits for data to be entered into cin<br>
+0. Install Docker if you don't have it installed yet<br>
+1. To build an image, you can use the following command:<br>
+
+```
+docker build . -t mython
+```
+2. To launch the created docker image, you can use the following command:
+
+```
+docker run -it mython
+```
+
 # Assembly using Cmake
 To build this project on linux you need:<br>
-1)If you don't have Cmake installed, install Cmake<br>
-2)If the "Debug" or "Release" folders are not created:<br>
+0)If you don't have Cmake installed, install Cmake<br>
+1)If the "Debug" or "Release" folders are not created:<br>
 
 ```
 mkdir Debug
 mkdir Release
 ```
-3)Run the command for Debug and Release conf:<br>
+2)Run the command for Debug and Release conf:<br>
 
 ```
 cmake -E chdir Debug/ cmake -G "Unix Makefiles" ../ -DCMAKE_BUILD_TYPE:STRING=Debug
 cmake -E chdir Release/ cmake -G "Unix Makefiles" ../ -DCMAKE_BUILD_TYPE:STRING=Release
 ```
-4)Build command:<br>
+3)Build command:<br>
 
 ```
 cmake --build Debug/.
 cmake --build Release/.
 ```
 
-5)To **Run** program- go to the debug (cd Debug/) or release (cd Release/) folder and run:<br>
+4)To **Run** program- go to the debug (cd Debug/) or release (cd Release/) folder and run:<br>
 
 ```
 ./mython
 ```
-6)After the messages about the successful completion of the tests, you can run your program in Mython, and then, at the end of the program, to get an answer, type **ctrl+D into the command console**<br>
+5)After the messages about the successful completion of the tests, you can run your program in Mython, and then, at the end of the program, to get an answer, type **ctrl+D into the command console**<br>
 <br>
 
 **ALL in one command(Release)**:<br>

@@ -7,34 +7,49 @@
 Mython(Mini-python. Встречается расшифровка My Python, но в ней речь о другом Mython) — упрощённое подмножество Python.<br>
 В Mython есть **классы** и **наследование**, а все **методы** — **виртуальные**.<br>
 
+# Сборка Docker образа и запуск его
+При сборке образа происходит сборка программы при помощи Cmake по инструкции ниже (версия Release)<br>
+При запуске образа запускается **без параметров** скомпилированная программа и ожидает данные на ввод в cin<br>
+0. Установите Docker если он у Вас еще не установлен<br>
+1. Для сборки образа можно воспользоваться следующей командой:<br>
+
+```
+docker build . -t mython
+```
+2. Для запуска созданного докер образа можно воспользоваться следующей командой:
+
+```
+docker run -it mython
+```
+
 # Сборка при помощи Cmake
 To build this project on linux you need:<br>
-1)If you don't have Cmake installed, install Cmake<br>
-2)If the "Debug" or "Release" folders are not created:<br>
+0)If you don't have Cmake installed, install Cmake<br>
+1)If the "Debug" or "Release" folders are not created:<br>
 
 ```
 mkdir Debug
 mkdir Release
 ```
-3)Run the command for Debug and Release conf:<br>
+2)Run the command for Debug and Release conf:<br>
 
 ```
 cmake -E chdir Debug/ cmake -G "Unix Makefiles" ../ -DCMAKE_BUILD_TYPE:STRING=Debug
 cmake -E chdir Release/ cmake -G "Unix Makefiles" ../ -DCMAKE_BUILD_TYPE:STRING=Release
 ```
-4)Build command:<br>
+3)Build command:<br>
 
 ```
 cmake --build Debug/.
 cmake --build Release/.
 ```
 
-5)To **Run** program- go to the debug (cd Debug/) or release (cd Release/) folder and run:<br>
+4)To **Run** program- go to the debug (cd Debug/) or release (cd Release/) folder and run:<br>
 
 ```
 ./mython
 ```
-6)После сообщений об успешном прохождении тестов, вы можете ввести свою программу на Mython, а затем, вконце программы для полученния ответа введите в кконнсоль команнду **ctrl+D**<br>
+5)После сообщений об успешном прохождении тестов, вы можете ввести свою программу на Mython, а затем, вконце программы для полученния ответа введите в кконнсоль команнду **ctrl+D**<br>
 
 **ALL in one command(Release)**:<br>
 
@@ -43,8 +58,8 @@ mkdir Release; cmake -E chdir Release/ cmake -G "Unix Makefiles" ../ -DCMAKE_BUI
 ```
 
 # Системые требования:
-  1. C++17(STL)<br>
-  2. GCC (MinG w64) 11.2.0  <br>
+  0. C++17(STL)<br>
+  1. GCC (MinG w64) 11.2.0  <br>
   
 # Планы по доработке:
 0. Добавить UI<br>
